@@ -1,10 +1,17 @@
-# react-desktop-tray
+# @react-tray/renderer
+
+> React renderer for creating desktop tray application.
+
+This is monorepo which contains multiple `packages`:
+
+- [@react-tray/examples](./packages/examples/README.md)
+- [@react-tray/renderer](./packages/examples/README.md)
 
 ## Example usage
 
 ```
 import React, { useState } from 'react';
-import { start, Menu, MenuItem } from 'react-desktop-tray';
+import { start, Menu, MenuItem } from '@react-tray/renderer';
 
 const Application = () => {
   return (

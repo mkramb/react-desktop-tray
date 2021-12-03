@@ -1,3 +1,14 @@
 {
-  "name": "react-desktop-tray"
+  "name": "parent",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Mitja Kramberger <mitja.kramberger@gmail.com>",
+  "workspaces": [
+    "packages/examples",
+    "packages/renderer"
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach --verbose run build",
+    "clean": "yarn workspaces foreach --verbose run clean"
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "name": "@react-tray/examples",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "shx rm -fr ./dist",
+    "dev": "yarn build --pretty --watch --preserveWatchOutput",
+    "build": "tsc -p ./tsconfig.json --outDir ./dist",
+    "start": "electron ./dist/index.js"
+  },
+  "dependencies": {
+    "@react-tray/renderer": "workspace:*",
+    "electron": "^16.0.1",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "shx": "^0.3.3",
+    "typescript": "^4.5.2"
+  }
+}
