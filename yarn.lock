@@ -45,9 +45,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@react-tray/renderer@workspace:packages/renderer"
   dependencies:
+    "@types/deep-diff": ^1.0.1
     "@types/node": ^12.0.0
     "@types/react": ^17.0.0
     "@types/react-reconciler": ^0
+    deep-diff: ^1.0.2
     electron: ^16.0.1
     react: ^17.0.2
     react-reconciler: ^0.26.2
@@ -69,6 +71,13 @@ __metadata:
   dependencies:
     defer-to-connect: ^1.0.1
   checksum: 4d9158061c5f397c57b4988cde33a163244e4f02df16364f103971957a32886beb104d6180902cbe8b38cb940e234d9f98a4e486200deca621923f62f50a06fe
+  languageName: node
+  linkType: hard
+
+"@types/deep-diff@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@types/deep-diff@npm:1.0.1"
+  checksum: cfd4ab732051b571a2e7f265b147619ae703977567f00db342ff2197c30caabc8e3096c194c22e08ea7c56af4dd5c55fc23881605e71851f70840c7587cd5ec2
   languageName: node
   linkType: hard
 
@@ -277,6 +286,13 @@ __metadata:
   dependencies:
     mimic-response: ^1.0.0
   checksum: 952552ac3bd7de2fc18015086b09468645c9638d98a551305e485230ada278c039c91116e946d07894b39ee53c0f0d5b6473f25a224029344354513b412d7380
+  languageName: node
+  linkType: hard
+
+"deep-diff@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "deep-diff@npm:1.0.2"
+  checksum: 9de8b5eedc1957116e1b47e4c3c4e3dbe23cb741abefc5ec8829a12e77958c689ac46888a3c35320f976cf42fb6de2b016e158facdb24d894ab5b5fdabad9b34
   languageName: node
   linkType: hard
 

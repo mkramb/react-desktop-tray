@@ -2,13 +2,17 @@
   "name": "parent",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "author": "Mitja Kramberger <mitja.kramberger@gmail.com>",
+  "repository": "git@github.com:mkramb/react-tray.git",
   "workspaces": [
     "packages/examples",
     "packages/renderer"
   ],
   "scripts": {
     "build": "yarn workspaces foreach --verbose run build",
-    "clean": "yarn workspaces foreach --verbose run clean"
+    "clean": "yarn workspaces foreach --verbose run clean",
+    "start": "yarn workspace @react-tray/examples run start",
+    "start:prod": "ELECTRON_IS_DEV=0 yarn start"
   }
 }
