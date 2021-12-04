@@ -1,19 +1,22 @@
 {
   "name": "@react-tray/renderer",
   "version": "1.0.0",
+  "private": true,
   "main": "./dist/index.js",
   "scripts": {
     "clean": "shx rm -fr ./dist",
-    "dev": "yarn build --pretty --watch --preserveWatchOutput",
+    "dev": "yarn build --pretty --watch --preserveWatchOutput --incremental",
     "build": "tsc -p ./tsconfig.json --outDir ./dist"
   },
   "dependencies": {
+    "debug": "^4.3.3",
     "deep-diff": "^1.0.2",
     "electron": "^16.0.1",
     "react": "^17.0.2",
     "react-reconciler": "^0.26.2"
   },
   "devDependencies": {
+    "@types/debug": "^4.1.7",
     "@types/deep-diff": "^1.0.1",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",

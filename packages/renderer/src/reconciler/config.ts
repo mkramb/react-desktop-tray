@@ -1,6 +1,9 @@
+import createDebug from 'debug';
 import { applyChange, observableDiff } from 'deep-diff';
 
 import { createElement, getElementClass } from '../components';
+
+const debug = createDebug('config');
 
 const hostConfig = {
   /**
@@ -23,6 +26,7 @@ const hostConfig = {
    * that way.
    */
   getRootHostContext() {
+    debug('getRootHostContext');
     return null;
   },
 
@@ -36,6 +40,8 @@ const hostConfig = {
    * can do is call a static function on the class.
    */
   getChildHostContext(parentHostContext, type) {
+    debug('getChildHostContext %o', { type });
+
     return {
       hostContext: parentHostContext,
       ...getElementClass(type).getHostContext(),
@@ -47,6 +53,8 @@ const hostConfig = {
    * We let the instance decide what should be returned.
    */
   getPublicInstance(instance) {
+    debug('getChildHostContext', { instance });
+
     return instance.getPublicInstance();
   },
 
@@ -56,6 +64,8 @@ const hostConfig = {
    * element type, and creates the instances for us.
    */
   createInstance(type, props, rootContainer, hostContext) {
+    debug('createInstance %o', { type, props });
+
     return createElement(type, props, rootContainer, hostContext);
   },
 
@@ -76,12 +86,18 @@ const hostConfig = {
    * every child can simply be appended.
    */
   appendInitialChild(parentInstance, child) {
+    debug('appendInitialChild');
+
     parentInstance.appendChild(child);
   },
   appendChild(parentInstance, child) {
+    debug('appendChild');
+
     parentInstance.appendChild(child);
   },
   appendChildToContainer(container, child) {
+    debug('appendChildToContainer');
+
     container.appendChild(child);
   },
 
@@ -89,10 +105,14 @@ const hostConfig = {
    * As above, but for the case where the an existing child element is being removed.
    */
   removeChild(parentInstance, child) {
+    debug('removeChild');
+
     parentInstance.removeChild(child);
     child.unmount();
   },
   removeChildFromContainer(container, child) {
+    debug('removeChildFromContainer');
+
     container.removeChild(child);
     child.unmount();
   },
@@ -105,7 +125,9 @@ const hostConfig = {
    * The return value of this function determines whether React Fiber will run
    * `commitMount` for the newly created element.
    */
-  finalizeInitialChildren(newElement, _type, props, rootContainerInstance) {
+  finalizeInitialChildren(newElement, type, props, rootContainerInstance) {
+    debug('finalizeInitialChildren %o', { type, props });
+
     return newElement.finalizeBeforeMount(props, rootContainerInstance);
   },
 
@@ -113,7 +135,9 @@ const hostConfig = {
    * ReactDOM uses this to focus any input elements it just created.
    * Used for any last processing of component.
    */
-  commitMount(instance, _type, newProps, _internalInstanceHandle) {
+  commitMount(instance, type, newProps, _internalInstanceHandle) {
+    debug('commitMount %o', { type, newProps });
+
     instance.commitMount(newProps);
   },
 
@@ -135,7 +159,9 @@ const hostConfig = {
    * much as you can in `prepareUpdate` so that `commitUpdate` can be very fast
    * and straightforward.
    */
-  prepareUpdate(_instance, _type, oldProps, newProps) {
+  prepareUpdate(_instance, type, oldProps, newProps) {
+    debug('prepareUpdate %o', { type, oldProps, newProps });
+
     let diffProps = {};
 
     observableDiff(oldProps, newProps, function (diff) {
@@ -145,6 +171,8 @@ const hostConfig = {
     return diffProps;
   },
   commitUpdate(instance, updatePayload) {
+    debug('commitUpdate %o', { updatePayload });
+
     instance.commitMount(updatePayload);
   },
 

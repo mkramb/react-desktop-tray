@@ -10,9 +10,13 @@
     "packages/renderer"
   ],
   "scripts": {
-    "build": "yarn workspaces foreach --verbose run build",
+    "build": "yarn workspaces foreach --verbose --parallel --topological run build",
     "clean": "yarn workspaces foreach --verbose run clean",
+    "dev": "sh ./scripts/dev.sh",
     "start": "yarn workspace @react-tray/examples run start",
     "start:prod": "ELECTRON_IS_DEV=0 yarn start"
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0"
   }
 }

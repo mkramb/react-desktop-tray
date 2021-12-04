@@ -1,4 +1,3 @@
-class MenuComponent {}
-class MenuItemComponent {}
-
-export { MenuComponent, MenuItemComponent };
+export * from './menu';
+export * from './item';
+export * from './separator';

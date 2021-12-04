@@ -1,15 +1,21 @@
-import { App } from 'electron';
+import { App, MenuItem } from 'electron';
 
-import { HostContext, Props } from '../types';
 import { ComponentTypes } from '../index';
+import { HostContext } from '../types';
 
-class RootComponent {
+class MenuSeparatorComponent {
+  private menuItem: MenuItem;
+
   constructor(
     public type: ComponentTypes,
-    public props: Props,
+    public props: {},
     public rootContainerInstance: App,
     public hostContext: HostContext
-  ) {}
+  ) {
+    this.menuItem = new MenuItem({
+      type: 'separator',
+    });
+  }
 
   static getHostContext() {}
 
@@ -20,13 +26,9 @@ class RootComponent {
     return false;
   }
 
-  unmount() {
-    this.rootContainerInstance.quit();
-  }
-
   getPublicInstance() {
-    return this.rootContainerInstance;
+    return this.menuItem;
   }
 }
 
-export { RootComponent };
+export { MenuSeparatorComponent };
