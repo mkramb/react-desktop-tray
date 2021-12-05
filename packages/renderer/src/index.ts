@@ -1,4 +1,4 @@
 import { start } from './start';
-import { Menu, MenuItem, MenuSeparator } from './components';
+import { Tray, MenuItem } from './components';
 
-export { start, Menu, MenuItem, MenuSeparator };
+export { start, Tray, MenuItem };

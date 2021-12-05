@@ -64,7 +64,7 @@ const hostConfig = {
    * element type, and creates the instances for us.
    */
   createInstance(type, props, rootContainer, hostContext) {
-    debug('createInstance %o', { type, props });
+    debug('createInstance %o', { type });
 
     return createElement(type, props, rootContainer, hostContext);
   },
@@ -126,7 +126,7 @@ const hostConfig = {
    * `commitMount` for the newly created element.
    */
   finalizeInitialChildren(newElement, type, props, rootContainerInstance) {
-    debug('finalizeInitialChildren %o', { type, props });
+    debug('finalizeInitialChildren %o', { type });
 
     return newElement.finalizeBeforeMount(props, rootContainerInstance);
   },
@@ -136,7 +136,7 @@ const hostConfig = {
    * Used for any last processing of component.
    */
   commitMount(instance, type, newProps, _internalInstanceHandle) {
-    debug('commitMount %o', { type, newProps });
+    debug('commitMount %o', { type });
 
     instance.commitMount(newProps);
   },
@@ -160,20 +160,29 @@ const hostConfig = {
    * and straightforward.
    */
   prepareUpdate(_instance, type, oldProps, newProps) {
-    debug('prepareUpdate %o', { type, oldProps, newProps });
+    debug('prepareUpdate %o', { type });
+
+    const filteredProps = {
+      children: undefined,
+    };
+
+    const oldPropsToBeCompared = { ...oldProps, ...filteredProps };
+    const newPropsToBeCompared = { ...newProps, ...filteredProps };
 
     let diffProps = {};
 
-    observableDiff(oldProps, newProps, function (diff) {
+    observableDiff(oldPropsToBeCompared, newPropsToBeCompared, (diff) => {
       applyChange(diffProps, {}, diff);
     });
+
+    debug('prepareUpdate - diffProps %o', { diffProps });
 
     return diffProps;
   },
   commitUpdate(instance, updatePayload) {
     debug('commitUpdate %o', { updatePayload });
 
-    instance.commitMount(updatePayload);
+    instance.commitUpdate(updatePayload);
   },
 
   /**

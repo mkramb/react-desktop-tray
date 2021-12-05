@@ -3,19 +3,15 @@ import { App, MenuItem } from 'electron';
 import { ComponentTypes } from '../index';
 import { HostContext } from '../types';
 
-class MenuSeparatorComponent {
-  private menuItem: MenuItem;
+abstract class BaseItemComponent<TProps> {
+  protected menuItem: MenuItem;
 
   constructor(
     public type: ComponentTypes,
-    public props: {},
+    public props: TProps,
     public rootContainerInstance: App,
     public hostContext: HostContext
-  ) {
-    this.menuItem = new MenuItem({
-      type: 'separator',
-    });
-  }
+  ) {}
 
   static getHostContext() {}
 
@@ -23,7 +19,14 @@ class MenuSeparatorComponent {
   removeChild() {}
 
   finalizeBeforeMount() {
-    return false;
+    return true;
+  }
+
+  commitMount() {}
+  commitUpdate() {}
+
+  unmount() {
+    this.menuItem = null;
   }
 
   getPublicInstance() {
@@ -31,4 +34,4 @@ class MenuSeparatorComponent {
   }
 }
 
-export { MenuSeparatorComponent };
+export { BaseItemComponent };

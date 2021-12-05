@@ -9,7 +9,9 @@ class RootComponent {
     public props: Props,
     public rootContainerInstance: App,
     public hostContext: HostContext
-  ) {}
+  ) {
+    this.rootContainerInstance.dock.hide();
+  }
 
   static getHostContext() {}
 

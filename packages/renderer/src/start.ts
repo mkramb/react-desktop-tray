@@ -6,6 +6,8 @@ import { ElectronRenderer } from './reconciler';
 
 const debug = createDebug('start');
 
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+
 /**
  * Renders the element that is passed in
  * (equivalent of react-dom's render method)

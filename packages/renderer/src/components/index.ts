@@ -1,20 +1,20 @@
 import { RootComponent } from './root';
-import { MenuComponent, MenuItemComponent, MenuSeparatorComponent } from './menu';
+import { TrayComponent } from './tray';
+import { MenuItemComponent } from './menu';
 
 const Root = 'ROOT';
-const Menu = 'MENU';
+const Tray = 'TRAY';
 const MenuItem = 'MENU_ITEM';
 const MenuSeparator = 'MENU_SEPARATOR';
 
 const ComponentTypes = {
   [Root]: RootComponent,
-  [Menu]: MenuComponent,
+  [Tray]: TrayComponent,
   [MenuItem]: MenuItemComponent,
-  [MenuSeparator]: MenuSeparatorComponent,
 };
 
 type ComponentTypes = keyof typeof ComponentTypes;
 
-export { ComponentTypes, Menu, MenuItem, MenuSeparator };
+export { ComponentTypes, Tray, MenuItem, MenuSeparator };
 
 export * from './utils';
