@@ -16,5 +16,3 @@ const ComponentTypes = {
 type ComponentTypes = keyof typeof ComponentTypes;
 
 export { ComponentTypes, Tray, MenuItem, MenuSeparator };
-
-export * from './utils';

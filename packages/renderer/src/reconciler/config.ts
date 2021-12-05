@@ -1,9 +1,9 @@
 import createDebug from 'debug';
 import { applyChange, observableDiff } from 'deep-diff';
 
-import { createElement, getElementClass } from '../components';
+import { createElement, getElementClass } from '../components/utils';
 
-const debug = createDebug('config');
+const debug = createDebug('reconciler');
 
 const hostConfig = {
   /**

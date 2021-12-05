@@ -1,10 +1,10 @@
 import createDebug from 'debug';
 import { app } from 'electron';
 
-import { createElement } from './components';
+import { createElement } from './components/utils';
 import { ElectronRenderer } from './reconciler';
 
-const debug = createDebug('start');
+const debug = createDebug('renderer');
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
