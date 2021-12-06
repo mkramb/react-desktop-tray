@@ -1,3 +1,4 @@
+import sharp from 'sharp';
 import { App, Menu, MenuItem, nativeImage, Tray } from 'electron';
 
 import { HostContext } from '../types';
@@ -5,7 +6,7 @@ import { ComponentTypes } from '../index';
 import { MenuItemComponent } from '../menu';
 
 interface TrayComponentProps {
-  readonly iconDataUrl: string;
+  readonly icon: Buffer;
   readonly tooltip?: string;
 }
 
@@ -45,12 +46,12 @@ class TrayComponent {
     return true;
   }
 
-  commitMount() {
-    const icon = nativeImage.createFromDataURL(this.props.iconDataUrl);
+  async commitMount() {
+    const icon = await sharp(this.props.icon).png().resize(16, 16).toBuffer();
     const menu = Menu.buildFromTemplate(this.menuItems);
 
+    this.tray.setImage(nativeImage.createFromBuffer(icon));
     this.tray.setContextMenu(menu);
-    this.tray.setImage(icon);
   }
 
   commitUpdate() {}
@@ -67,4 +68,4 @@ class TrayComponent {
   }
 }
 
-export { TrayComponent };
+export { TrayComponent, TrayComponentProps };

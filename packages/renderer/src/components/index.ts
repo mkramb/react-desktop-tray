@@ -1,11 +1,21 @@
+import { Key, ReactNode } from 'react';
+
 import { RootComponent } from './root';
-import { TrayComponent } from './tray';
-import { MenuItemComponent } from './menu';
+import { TrayComponent, TrayComponentProps } from './tray';
+import { MenuItemComponent, MenuItemComponentProps } from './menu';
 
 const Root = 'ROOT';
 const Tray = 'TRAY';
 const MenuItem = 'MENU_ITEM';
-const MenuSeparator = 'MENU_SEPARATOR';
+
+type Tray = {
+  readonly children?: ReactNode;
+  readonly key?: Key;
+} & TrayComponentProps;
+
+type MenuItem = {
+  key?: Key;
+} & MenuItemComponentProps;
 
 const ComponentTypes = {
   [Root]: RootComponent,
@@ -15,4 +25,13 @@ const ComponentTypes = {
 
 type ComponentTypes = keyof typeof ComponentTypes;
 
-export { ComponentTypes, Tray, MenuItem, MenuSeparator };
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      TRAY: Tray;
+      MENU_ITEM: MenuItem;
+    }
+  }
+}
+
+export { ComponentTypes, Tray, MenuItem };

@@ -2,7 +2,7 @@ import { MenuItem } from 'electron';
 
 import { BaseItemComponent } from './base';
 
-interface MenuItemComponentProps {
+interface MenuItemNormalComponentProps {
   readonly label: string;
   readonly onClick: () => void;
 }
@@ -11,9 +11,9 @@ interface MenuItemSeparatorComponentProps {
   readonly type: 'separator';
 }
 
-class MenuItemComponent extends BaseItemComponent<
-  MenuItemComponentProps | MenuItemSeparatorComponentProps
-> {
+type MenuItemComponentProps = MenuItemNormalComponentProps | MenuItemSeparatorComponentProps;
+
+class MenuItemComponent extends BaseItemComponent<MenuItemComponentProps> {
   constructor(type, props, rootContainerInstance, hostContext) {
     super(type, props, rootContainerInstance, hostContext);
 
@@ -43,4 +43,4 @@ class MenuItemComponent extends BaseItemComponent<
   }
 }
 
-export { MenuItemComponent };
+export { MenuItemComponent, MenuItemComponentProps };

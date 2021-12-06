@@ -5,4 +5,4 @@
 This is monorepo which contains multiple `packages`:
 
 - [@react-tray/examples](./packages/examples/README.md)
-- [@react-tray/renderer](./packages/examples/README.md)
+- [@react-tray/renderer](./packages/renderer/README.md)
