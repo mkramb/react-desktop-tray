@@ -27,3 +27,10 @@ And to package for distribution:
 # inside project folder
 react-tray-cli build
 ```
+
+# TODO
+
+- implement CLI generate
+- add update logic for renderer
+- implement CLI build
+- add docs
