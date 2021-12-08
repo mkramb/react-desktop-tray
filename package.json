@@ -6,15 +6,17 @@
   "author": "Mitja Kramberger <mitja.kramberger@gmail.com>",
   "repository": "git@github.com:mkramb/react-tray.git",
   "workspaces": [
-    "packages/examples",
+    "packages/cli",
+    "packages/playground",
     "packages/renderer"
   ],
   "scripts": {
     "build": "yarn workspaces foreach --verbose --parallel --topological run build",
     "clean": "yarn workspaces foreach --verbose run clean",
     "dev": "sh ./scripts/dev.sh",
-    "start": "yarn workspace @react-tray/examples run start",
-    "start:prod": "ELECTRON_IS_DEV=0 yarn start"
+    "start:cli": "yarn workspace @react-tray/cli run start",
+    "start:playground": "yarn workspace @react-tray/playground run start",
+    "start:playground:prod": "ELECTRON_IS_DEV=0 yarn start"
   },
   "devDependencies": {
     "concurrently": "^6.4.0"

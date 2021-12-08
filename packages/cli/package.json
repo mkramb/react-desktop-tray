@@ -1,0 +1,18 @@
+{
+  "name": "@react-tray/cli",
+  "version": "1.0.0",
+  "bin": {
+    "react-tray-cli": "./bin/react-tray-cli"
+  },
+  "scripts": {
+    "clean": "shx rm -fr ./dist",
+    "dev": "yarn build --pretty --watch --preserveWatchOutput --incremental",
+    "build": "tsc -p ./tsconfig.json --outDir ./dist",
+    "start": "./bin/react-tray-cli"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "shx": "^0.3.3",
+    "typescript": "^4.5.2"
+  }
+}

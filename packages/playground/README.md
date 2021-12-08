@@ -1,4 +1,4 @@
-# @react-tray/examples
+# @react-tray/playground
 
 # Description
 

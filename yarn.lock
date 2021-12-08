@@ -81,9 +81,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-tray/examples@workspace:packages/examples":
+"@react-tray/cli@workspace:packages/cli":
   version: 0.0.0-use.local
-  resolution: "@react-tray/examples@workspace:packages/examples"
+  resolution: "@react-tray/cli@workspace:packages/cli"
+  dependencies:
+    "@types/node": ^12.0.0
+    shx: ^0.3.3
+    typescript: ^4.5.2
+  bin:
+    react-tray-cli: ./bin/react-tray-cli
+  languageName: unknown
+  linkType: soft
+
+"@react-tray/playground@workspace:packages/playground":
+  version: 0.0.0-use.local
+  resolution: "@react-tray/playground@workspace:packages/playground"
   dependencies:
     "@react-tray/renderer": "workspace:*"
     "@types/node": ^12.0.0
