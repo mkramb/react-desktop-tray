@@ -9,6 +9,7 @@
     "start": "electron ./dist/index.js"
   },
   "dependencies": {
+    "@react-tray/cli": "workspace:*",
     "@react-tray/renderer": "workspace:*",
     "react": "^17.0.2"
   },

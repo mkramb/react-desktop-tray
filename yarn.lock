@@ -81,7 +81,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-tray/cli@workspace:packages/cli":
+"@react-tray/cli@workspace:*, @react-tray/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@react-tray/cli@workspace:packages/cli"
   dependencies:
@@ -99,6 +99,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@react-tray/playground@workspace:packages/playground"
   dependencies:
+    "@react-tray/cli": "workspace:*"
     "@react-tray/renderer": "workspace:*"
     "@types/node": ^12.0.0
     "@types/react": ^17.0.0

@@ -17,6 +17,13 @@ npm install -g @react-tray/cli
 ## Quick start
 
 ```
-react-tray-cli new [project-name]
+react-tray-cli generate [project-name]
 cd <my-app> && yarn install
+```
+
+And to package for distribution:
+
+```
+# inside project folder
+react-tray-cli build
 ```
