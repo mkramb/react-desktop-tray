@@ -17,6 +17,6 @@ npm install -g @react-tray/cli
 ## Quick start
 
 ```
-react-tray-cli new <my-app>
+react-tray-cli new [project-name]
 cd <my-app> && yarn install
 ```

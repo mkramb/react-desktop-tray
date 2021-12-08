@@ -86,8 +86,10 @@ __metadata:
   resolution: "@react-tray/cli@workspace:packages/cli"
   dependencies:
     "@types/node": ^12.0.0
+    "@types/yargs": ^17.0.7
     shx: ^0.3.3
     typescript: ^4.5.2
+    yargs: ^17.3.0
   bin:
     react-tray-cli: ./bin/react-tray-cli
   languageName: unknown
@@ -291,6 +293,22 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 155313a87f720248c0b14a0cd2eab44b3319a160133e308d3ec643a2b0e2a430dd54183eb4f349d7ccd1c10306c40dbd82752260812c87caea36749c3e0b186c
+  languageName: node
+  linkType: hard
+
+"@types/yargs-parser@npm:*":
+  version: 20.2.1
+  resolution: "@types/yargs-parser@npm:20.2.1"
+  checksum: 1d039e64494a7a61ddd278349a3dc60b19f99ff0517425696e796f794e4252452b9d62178e69755ad03f439f9dc0c8c3d7b3a1201b3a24e134bac1a09fa11eaa
+  languageName: node
+  linkType: hard
+
+"@types/yargs@npm:^17.0.7":
+  version: 17.0.7
+  resolution: "@types/yargs@npm:17.0.7"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: 520e803720b2a626338c0e2b61825dd1b956910fec4d855018c17e62cf9fb41eb67bcf122ba5c6fb569b1bfac73520d5d73e8be502b87f9a551619df441b1875
   languageName: node
   linkType: hard
 
@@ -2585,6 +2603,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"yargs-parser@npm:^21.0.0":
+  version: 21.0.0
+  resolution: "yargs-parser@npm:21.0.0"
+  checksum: 1e205fca1cb7a36a1585e2b94a64e641c12741b53627d338e12747f4dca3c3610cdd9bb235040621120548dd74c3ef03a8168d52a1eabfedccbe4a62462b6731
+  languageName: node
+  linkType: hard
+
 "yargs@npm:^16.2.0":
   version: 16.2.0
   resolution: "yargs@npm:16.2.0"
@@ -2597,6 +2622,21 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
   checksum: b14afbb51e3251a204d81937c86a7e9d4bdbf9a2bcee38226c900d00f522969ab675703bee2a6f99f8e20103f608382936034e64d921b74df82b63c07c5e8f59
+  languageName: node
+  linkType: hard
+
+"yargs@npm:^17.3.0":
+  version: 17.3.0
+  resolution: "yargs@npm:17.3.0"
+  dependencies:
+    cliui: ^7.0.2
+    escalade: ^3.1.1
+    get-caller-file: ^2.0.5
+    require-directory: ^2.1.1
+    string-width: ^4.2.3
+    y18n: ^5.0.5
+    yargs-parser: ^21.0.0
+  checksum: 2b687338684bf9645e9389ffdbe813fc5a2ddfede299d46fbe5ac80eb9a391e558b97861ba44d2256936ebe9d7f8135f6a38af1c76a5685eac4061008b2df57a
   languageName: node
   linkType: hard
 
