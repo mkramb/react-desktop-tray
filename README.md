@@ -1,4 +1,4 @@
-# @react-tray/renderer
+# react-tray
 
 > React renderer for creating desktop tray application.
 
