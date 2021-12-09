@@ -87,6 +87,7 @@ __metadata:
   dependencies:
     "@types/node": ^12.0.0
     "@types/yargs": ^17.0.7
+    electron: ^16.0.1
     shx: ^0.3.3
     typescript: ^4.5.2
     yargs: ^17.3.0
@@ -103,7 +104,6 @@ __metadata:
     "@react-tray/renderer": "workspace:*"
     "@types/node": ^12.0.0
     "@types/react": ^17.0.0
-    electron: ^16.0.1
     react: ^17.0.2
     shx: ^0.3.3
     typescript: ^4.5.2
@@ -118,7 +118,6 @@ __metadata:
     "@types/debug": ^4.1.7
     "@types/deep-diff": ^1.0.1
     "@types/node": ^12.0.0
-    "@types/react": ^17.0.0
     "@types/react-reconciler": ^0
     "@types/sharp": ^0.29.4
     debug: ^4.3.3
@@ -132,6 +131,12 @@ __metadata:
     shx: ^0.3.3
     tslib: ^2.3.1
     typescript: ^4.5.2
+  peerDependencies:
+    "@types/react": ^17.0.0
+    react: ^17.0.2
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
   languageName: unknown
   linkType: soft
 

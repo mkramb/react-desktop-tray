@@ -11,6 +11,7 @@
     "start": "./bin/react-tray-cli"
   },
   "dependencies": {
+    "electron": "^16.0.1",
     "yargs": "^17.3.0"
   },
   "devDependencies": {

@@ -16,7 +16,7 @@
     "dev": "sh ./scripts/dev.sh",
     "start:cli": "yarn workspace @react-tray/cli run start",
     "start:playground": "yarn workspace @react-tray/playground run start",
-    "start:playground:prod": "ELECTRON_IS_DEV=0 yarn start"
+    "start:playground:prod": "ELECTRON_IS_DEV=0 yarn start:playground"
   },
   "devDependencies": {
     "concurrently": "^6.4.0"

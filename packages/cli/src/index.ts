@@ -1,25 +1,39 @@
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { build, generate } from './commands';
+import { start, build, generate } from './commands';
 
 yargs(hideBin(process.argv))
   .scriptName('react-tray-cli')
   .demandCommand()
   .strict()
   .command(
-    'generate [name]',
+    'start [distPath]',
+    'start current project',
+    (yargs) => {
+      return yargs.positional('distPath', {
+        describe: 'path to dist folder',
+        default: 'dist/index.js',
+        type: 'string',
+      });
+    },
+    (argv) => {
+      start(argv.distPath);
+    }
+  )
+  .command(
+    'generate [projectName]',
     'generate new project',
     (yargs) => {
       return yargs
-        .positional('name', {
+        .positional('projectName', {
           describe: 'project name',
           type: 'string',
         })
-        .demandOption('name');
+        .demandOption('projectName');
     },
     (argv) => {
-      generate(argv.name);
+      generate(argv.projectName);
     }
   )
   .command('build', 'build for distribution', () => {

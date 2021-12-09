@@ -21,7 +21,9 @@ react-tray-cli generate [project-name]
 cd <my-app> && yarn install
 ```
 
-And to package for distribution:
+And then follow README in your new project.
+
+## Distribution
 
 ```
 # inside project folder
