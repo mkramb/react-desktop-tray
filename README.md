@@ -16,12 +16,15 @@ npm install -g @react-tray/cli
 
 ## Quick start
 
+To generate project skeleton:
+
 ```
-react-tray-cli generate [project-name]
-cd <my-app> && yarn install
+mkdir new-project && cd new-project 
+react-tray-cli init new-project
+yarn install
 ```
 
-And then follow README in your new project.
+And then follow README for next steps.
 
 ## Distribution
 
@@ -32,7 +35,6 @@ react-tray-cli build
 
 # TODO
 
-- implement CLI generate
 - add update logic for renderer
 - implement CLI build
 - add docs

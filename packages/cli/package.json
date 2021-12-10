@@ -6,18 +6,23 @@
   },
   "scripts": {
     "clean": "shx rm -fr ./dist",
-    "dev": "yarn build --pretty --watch --preserveWatchOutput --incremental",
-    "build": "tsc -p ./tsconfig.json --outDir ./dist",
-    "start": "./bin/react-tray-cli"
+    "copy:templates": "shx cp -R src/templates ./dist",
+    "dev": "yarn build && tsc-watch --outDir ./dist  --noClear --onSuccess \"yarn copy:templates\"",
+    "build": "tsc -p ./tsconfig.json --outDir ./dist"
   },
   "dependencies": {
+    "ejs": "^3.1.6",
     "electron": "^16.0.1",
+    "glob": "^7.2.0",
     "yargs": "^17.3.0"
   },
   "devDependencies": {
+    "@types/ejs": "^3.1.0",
+    "@types/glob": "^7.2.0",
     "@types/node": "^12.0.0",
     "@types/yargs": "^17.0.7",
     "shx": "^0.3.3",
+    "tsc-watch": "^4.5.0",
     "typescript": "^4.5.2"
   }
 }
