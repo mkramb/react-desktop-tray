@@ -30,7 +30,7 @@ class TrayComponent {
     this.menuItems.push(child.getPublicInstance());
   }
 
-  removeChild(child: MenuItemComponent) {
+  async removeChild(child: MenuItemComponent) {
     const index = this.menuItems.indexOf(child.getPublicInstance());
 
     if (index > -1) {
@@ -39,10 +39,6 @@ class TrayComponent {
   }
 
   finalizeBeforeMount() {
-    if (this.props.tooltip) {
-      this.tray.setToolTip(this.props.tooltip);
-    }
-
     return true;
   }
 
@@ -51,10 +47,13 @@ class TrayComponent {
     const menu = Menu.buildFromTemplate(this.menuItems);
 
     this.tray.setImage(nativeImage.createFromBuffer(icon));
+    this.tray.setToolTip(this.props.tooltip);
     this.tray.setContextMenu(menu);
   }
 
-  commitUpdate() {}
+  async commitUpdate(_payload) {
+    await this.commitMount();
+  }
 
   unmount() {
     this.tray.destroy();

@@ -41,6 +41,12 @@ class MenuItemComponent extends BaseItemComponent<MenuItemComponentProps> {
 
     this.menuItem = new MenuItem(item);
   }
+
+  commitUpdate(payload) {
+    if (payload.type) this.menuItem.type = payload.type;
+    if (payload.label) this.menuItem.label = payload.label;
+    if (payload.onClick) this.menuItem.click = payload.onClick;
+  }
 }
 
 export { MenuItemComponent, MenuItemComponentProps };

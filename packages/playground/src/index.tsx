@@ -7,24 +7,50 @@ const iconAsBuffer = Buffer.from(`
   </svg>
 `);
 
+interface UrlItem {
+  key: string;
+  label: string;
+  onClick: () => void;
+}
+
 const Application = () => {
-  const [url, setUrl] = useState(null);
+  const [urlItems, setUrlItems] = useState<UrlItem[]>([]);
   const { openExternal } = useShell();
 
-  const handleGoogle = () => setUrl('http://google.com');
-  const handleBing = () => setUrl('http://bing.com');
+  const handleOnClick = (selectedKey) => {
+    return () => {
+      if (selectedKey === 'google') openExternal('http://google.com');
+      if (selectedKey === 'bing') openExternal('http://bing.com');
+
+      setUrlItems((items) => {
+        return items.map((item) => {
+          let label = item.label;
+
+          if (item.key === selectedKey) {
+            label = `${item.label} ✅`;
+          }
+
+          return {
+            ...item,
+            label,
+          };
+        });
+      });
+    };
+  };
 
   useEffect(() => {
-    if (url) {
-      openExternal(url);
-    }
-  }, [url]);
+    setUrlItems([
+      { key: 'google', label: 'Google', onClick: handleOnClick('google') },
+      { key: 'bing', label: 'Bing', onClick: handleOnClick('bing') },
+    ]);
+  }, []);
 
   return (
-    <Tray icon={iconAsBuffer}>
-      <MenuItem label="Google" onClick={handleGoogle} />
-      <MenuItem type="separator" />
-      <MenuItem label="Bing" onClick={handleBing} />
+    <Tray icon={iconAsBuffer} tooltip="Url selector">
+      {urlItems.map((item) => {
+        return <MenuItem key={item.key} label={item.label} onClick={item.onClick} />;
+      })}
     </Tray>
   );
 };

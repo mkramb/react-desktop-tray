@@ -1,7 +1,7 @@
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { start, build, init } from './commands';
+import { start, init } from './commands';
 
 yargs(hideBin(process.argv))
   .scriptName('react-tray-cli')
@@ -36,8 +36,4 @@ yargs(hideBin(process.argv))
       start(argv.distPath);
     }
   )
-
-  .command('build', 'build for distribution', () => {
-    build();
-  })
   .parse();

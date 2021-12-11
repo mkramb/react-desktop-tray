@@ -23,7 +23,7 @@ abstract class BaseItemComponent<TProps> {
   }
 
   commitMount() {}
-  commitUpdate() {}
+  commitUpdate(_payload) {}
 
   unmount() {
     this.menuItem = null;

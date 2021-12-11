@@ -32,9 +32,3 @@ And then follow README for next steps.
 # inside project folder
 react-tray-cli build
 ```
-
-# TODO
-
-- add update logic for renderer
-- implement CLI build
-- add docs
