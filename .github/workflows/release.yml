@@ -7,7 +7,6 @@ on:
 
 env:
   CI: true
-  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   build:
@@ -24,13 +23,12 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install
-        run: |
-          yarn install --immutable
+        run: yarn install --immutable
 
       - name: Build
-        run: |
-          yarn build
+        run: yarn build
 
       - name: Release Public packages
-        run: |
-          yarn publish
+        run: yarn publish
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

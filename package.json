@@ -14,7 +14,7 @@
     "build": "yarn workspaces foreach --verbose --parallel --topological run build",
     "clean": "yarn workspaces foreach --verbose run clean",
     "dev": "sh ./scripts/dev.sh",
-    "publish": "yarn workspaces foreach --include '*/(renderer|cli)' npm publish --tolerate-republish --access=public",
+    "publish": "yarn workspaces foreach --include '*/(renderer|cli)' npm publish --tolerate-republish",
     "start:cli": "yarn workspace @react-tray/cli run start",
     "start:playground": "yarn workspace @react-tray/playground run start",
     "start:playground:prod": "ELECTRON_IS_DEV=0 yarn start:playground"
