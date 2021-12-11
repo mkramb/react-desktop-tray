@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { start, Tray, MenuItem, useShell } from '@react-tray/renderer';
 
 const iconAsBuffer = Buffer.from(`
@@ -8,24 +8,16 @@ const iconAsBuffer = Buffer.from(`
 `);
 
 const Application = () => {
-  const [url, setUrl] = useState(null);
   const { openExternal } = useShell();
 
-  const handleGoogle = () => setUrl('http://google.com');
-  const handleBing = () => setUrl('http://bing.com');
-
-  useEffect(() => {
-    if (url) {
-      openExternal(url);
-    }
-  }, [url]);
+  const handleGoogle = () => openExternal('http://google.com');
+  const handleBing = () => openExternal('http://bing.com');
 
   return (
-    <Tray icon={iconAsBuffer}>
+    <Tray icon={iconAsBuffer} tooltip="Url selector">
       <MenuItem label="Google" onClick={handleGoogle} />
-      <MenuItem type="separator" />
       <MenuItem label="Bing" onClick={handleBing} />
-    </Tray>
+  </Tray>
   );
 };
 
