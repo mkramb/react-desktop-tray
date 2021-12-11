@@ -30,3 +30,7 @@ jobs:
       - name: Build
         run: |
           yarn build
+
+      - name: Release Public packages
+        run: |
+          yarn publish
