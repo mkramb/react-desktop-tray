@@ -1,6 +1,6 @@
 {
   "name": "@react-tray/cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bin": {
     "react-tray-cli": "./bin/react-tray-cli"
   },
@@ -8,7 +8,8 @@
     "clean": "shx rm -fr ./dist",
     "copy:templates": "shx cp -R src/templates ./dist",
     "dev": "yarn build && tsc-watch --outDir ./dist  --noClear --onSuccess \"yarn copy:templates\"",
-    "build": "tsc -p ./tsconfig.json --outDir ./dist"
+    "build": "tsc -p ./tsconfig.json --outDir ./dist",
+    "prepack": "yarn copy:templates && yarn build"
   },
   "dependencies": {
     "ejs": "^3.1.6",
