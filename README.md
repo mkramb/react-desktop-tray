@@ -19,8 +19,8 @@ npm install -g @react-tray/cli
 To generate project skeleton:
 
 ```
-mkdir new-project && cd new-project 
-react-tray-cli init new-project
+mkdir example && cd example 
+npx @react-tray/cli init example
 yarn install
 ```
 
