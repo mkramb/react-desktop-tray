@@ -3,3 +3,32 @@
 ## Description
 
 Main package that provides a custom react-tray renderer, which currently utilizes Electron, but that is implementation detail which can change in the future.
+
+## Example usage
+
+```tsx
+import React from 'react';
+import { start, Tray, MenuItem, useShell } from '@react-tray/renderer';
+
+const iconAsBuffer = Buffer.from(`
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+  </svg>
+`);
+
+const Application = () => {
+  const { openExternal } = useShell();
+
+  const handleGoogle = () => openExternal('http://google.com');
+  const handleBing = () => openExternal('http://bing.com');
+
+  return (
+    <Tray icon={iconAsBuffer} tooltip="Url selector">
+      <MenuItem label="Google" onClick={handleGoogle} />
+      <MenuItem label="Bing" onClick={handleBing} />
+  </Tray>
+  );
+};
+
+start(<Application />);
+```
